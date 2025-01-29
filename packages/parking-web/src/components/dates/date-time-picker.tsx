@@ -268,22 +268,24 @@ export default function DateTimePicker({
               </Button>
             </div>
           }
-          onChange={(date) => {
-            if (!currentTimeSlot) return;
-            const selected = new Date(date.toDate(getLocalTimeZone()));
-            const currentTime = new Date(currentTimeSlot?.dateValue);
-            selected.setHours(
-              currentTime.getHours(),
-              currentTime.getMinutes(),
-              0,
-              0
-            );
-            if (moment(selected).isBefore(moment())) {
-              selected.setHours(moment().hours(), moment().minutes(), 0, 0);
-            }
-            setSelectedTimeSlot(selected);
-            if (onSelectDate) onSelectDate(selected);
-          }}
+          onChange={
+            ((date: any) => {
+              if (!currentTimeSlot) return;
+              const selected = new Date(date.toDate(getLocalTimeZone()));
+              const currentTime = new Date(currentTimeSlot?.dateValue);
+              selected.setHours(
+                currentTime.getHours(),
+                currentTime.getMinutes(),
+                0,
+                0
+              );
+              if (moment(selected).isBefore(moment())) {
+                selected.setHours(moment().hours(), moment().minutes(), 0, 0);
+              }
+              setSelectedTimeSlot(selected);
+              if (onSelectDate) onSelectDate(selected);
+            }) as any
+          }
           {...calendarProps}
         />
       </PopoverContent>
