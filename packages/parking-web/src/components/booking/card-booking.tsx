@@ -42,19 +42,19 @@ const getCurrentTimeWithAdjustment = (
   return date;
 };
 
-const computeDuration = (fromDate: Date, untilDate: Date) => {
-  const duration = moment.duration(moment(untilDate).diff(moment(fromDate)));
-  const totalHours = Math.floor(duration.asHours());
-  const minutes = duration.minutes();
+// const computeDuration = (fromDate: Date, untilDate: Date) => {
+//   const duration = moment.duration(moment(untilDate).diff(moment(fromDate)));
+//   const totalHours = Math.floor(duration.asHours());
+//   const minutes = duration.minutes();
 
-  if (totalHours > 0) {
-    return `${totalHours} ${totalHours > 1 ? 'hours' : 'hour'}${
-      minutes > 0 ? ', ' : ''
-    }${minutes > 0 ? `${minutes} ${minutes > 1 ? 'minutes' : 'minute'}` : ''}`;
-  } else {
-    return `${Math.floor(minutes)} ${minutes > 1 ? 'minutes' : 'minute'}`;
-  }
-};
+//   if (totalHours > 0) {
+//     return `${totalHours} ${totalHours > 1 ? 'hours' : 'hour'}${
+//       minutes > 0 ? ', ' : ''
+//     }${minutes > 0 ? `${minutes} ${minutes > 1 ? 'minutes' : 'minute'}` : ''}`;
+//   } else {
+//     return `${Math.floor(minutes)} ${minutes > 1 ? 'minutes' : 'minute'}`;
+//   }
+// };
 
 const minimumHours = 3;
 
