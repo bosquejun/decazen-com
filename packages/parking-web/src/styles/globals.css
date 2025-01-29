@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+button {
+  @apply !font-semibold;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+div[data-slot='input-wrapper'] input {
+  @apply text-[16px];
+}
+
+.app-tab-item[data-selected='true'] .tabIcon svg,
+.app-tab-item[data-selected='true'] .tabIcon svg path {
+  @apply text-primary-foreground stroke-none;
+}
+
+.app-tab-item .tabIcon svg,
+.app-tab-item .tabIcon svg path {
+  @apply text-default-500  stroke-none;
+}
+
+/* .after\:content-\[\'\*\'\]::after {
+  --tw-content: '(Optional)';
+  content: var(--tw-content);
+} */
+
+div[data-required='true']
+  div[data-slot='input-wrapper']
+  .after\:content-\[\'\*\'\]:after {
+  content: '' !important;
+}
+
+div[data-slot='base']:not([data-required])
+  div[data-slot='input-wrapper']
+  label[data-slot='label']::after {
+  --tw-content: ' (Optional)' !important;
+  content: var(--tw-content) !important;
+}
