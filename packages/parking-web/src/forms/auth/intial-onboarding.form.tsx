@@ -20,10 +20,7 @@ export default function InitialOnboardForm({
     resolver: yupResolver(initialOnboardSchema),
     defaultValues: {},
   });
-  const {
-    handleSubmit,
-    formState: { isSubmitting },
-  } = formProps;
+  const { handleSubmit } = formProps;
 
   const onSubmitHandler: SubmitHandler<InitialOnboardSchemaType> = async (
     data
