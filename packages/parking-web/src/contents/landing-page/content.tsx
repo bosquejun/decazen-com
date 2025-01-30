@@ -2,8 +2,7 @@
 import { cn } from '@/lib/utils';
 import { animate, stagger, useInView } from 'framer-motion';
 import Image from 'next/image';
-import { useEffect, useRef } from 'react';
-import { HowItWorksContentWithHeading } from '../how-it-works/content-with-heading';
+import { lazy, Suspense, useEffect, useRef } from 'react';
 import { Hero } from './hero';
 
 const SVGDataURI =
@@ -83,6 +82,10 @@ export const Skeleton = () => {
     </div>
   );
 };
+
+const HowItWorks = lazy(
+  async () => import('@/contents/how-it-works/content-with-heading')
+);
 
 export const MobileMockup = ({ className }: { className?: string }) => {
   return (
@@ -201,7 +204,9 @@ export default function LandingPageContent() {
   return (
     <div ref={ref} className="flex flex-col space-y-12">
       <Hero isInView={isInView} />
-      <HowItWorksContentWithHeading />
+      <Suspense>
+        <HowItWorks />
+      </Suspense>
     </div>
   );
 }

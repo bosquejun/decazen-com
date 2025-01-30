@@ -1,7 +1,7 @@
 'use client';
 
 import { ContentLayout } from '@/components/ContentLayout';
-import { CardDashedGridLines } from '@/components/ui/card-dashed-grid-lines';
+import { Grid } from '@/components/features/grid-pattern-features';
 import RentoutSpaceForm from '@/forms/auth/rent-out-space.form';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
@@ -10,10 +10,7 @@ import Balancer from 'react-wrap-balancer';
 export default function GetStartedSection() {
   const router = useRouter();
   return (
-    <div
-      className="bg-content2 dark:bg-content1 w-full h-auto relative"
-      id="get-started"
-    >
+    <div className="bg-content2 dark:bg-neutral-950 w-full h-auto relative">
       <ContentLayout className="flex flex-col py-20">
         <div className="grid md:grid-cols-3 items-center justify-center space-y-6 md:space-y-8">
           <div className="col-span-1 md:col-span-2">
@@ -51,8 +48,7 @@ export default function GetStartedSection() {
               className="text-center md:text-start mt-6 text-base md:text-lg text-neutral-500 dark:text-neutral-400  relative z-10"
             >
               <Balancer>
-                Fill out the form below to get started. Our team will reach out
-                to you shortly.
+                Create a business account by simply filling out the form.
               </Balancer>
             </motion.p>
           </div>
@@ -71,18 +67,18 @@ export default function GetStartedSection() {
               delay: 0.4,
             }}
           >
-            <CardDashedGridLines
-              classNames={{
-                base: 'dark!from-content2 from-content1 !to-content2 w-full !min-w-[310px]',
-              }}
-            >
-              <RentoutSpaceForm
-                onSubmit={async (data) => {
-                  console.log(data);
-                  router.push('/onboarding');
-                }}
-              />
-            </CardDashedGridLines>
+            <div className="flex relative px-4 z-20 items-center w-full justify-center py-10">
+              <div className="relative mx-auto flex w-full max-w-2xl flex-col items-start gap-4 overflow-hidden rounded-3xl bg-gradient-to-b from-gray-100 to-white p-4 dark:from-neutral-900 dark:to-neutral-950 sm:p-10">
+                <Grid size={20} />
+                <div className="w-full">
+                  <RentoutSpaceForm
+                    onSubmit={async () => {
+                      router.push('/onboarding');
+                    }}
+                  />
+                </div>
+              </div>
+            </div>
           </motion.div>
         </div>
       </ContentLayout>

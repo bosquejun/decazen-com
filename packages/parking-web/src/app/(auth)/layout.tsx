@@ -12,7 +12,18 @@ export default function RootLayout({
 }) {
   return (
     <div className="w-screen h-screen overflow-hidden">
-      <GridBgLayout inverted className="grid-bg-layout px-8 md:px-0">
+      <GridBgLayout
+        inverted
+        className="grid-bg-layout px-8 md:px-0 hidden md:block"
+      >
+        <div className="z-10 relative">{children}</div>
+      </GridBgLayout>
+
+      <GridBgLayout
+        inverted
+        className="grid-bg-layout px-8 md:px-0 md:hidden block"
+        type="dot"
+      >
         <div className="z-10 relative">{children}</div>
       </GridBgLayout>
     </div>

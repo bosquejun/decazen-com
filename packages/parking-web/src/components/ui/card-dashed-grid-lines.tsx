@@ -15,7 +15,7 @@ export function CardDashedGridLines({
   return (
     <section
       className={cn(
-        'w-full my-10 md:my-20 justify-start relative z-20 bg-gradient-to-br dark:from-content1 from-content2 to-background',
+        'w-full my-10 md:my-20 justify-start relative z-20 bg-gradient-to-br from-gray-100 to-white dark:from-neutral-900 dark:to-neutral-950',
         classNames?.base
       )}
     >

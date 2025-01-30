@@ -6,26 +6,27 @@ import { TbLiveView } from 'react-icons/tb';
 export function FeaturesSectionDemo() {
   const features = [
     {
-      title: 'Search for Parking',
+      title: 'Find the Perfect Spot',
       description:
-        'Look for available parking spots based on building, area, date, and time',
+        "Easily search for available parking. Filter options based on your needs, whether it's covered parking or a nearby space for quick access.",
       icon: <FaSearchLocation className="h-6 w-6" />,
     },
     {
-      title: 'View and Choose a Spot',
+      title: 'Reserve in No Time',
       description:
-        'Choose a parking spot based on price, location, and details.',
+        'Book your parking in just a few taps. Get instant confirmation and clear details on where to park, so you can head straight to your spot without delays.',
       icon: <TbLiveView className="h-6 w-6" />,
     },
     {
-      title: 'Book and Pay',
-      description: 'Reserve the spot and complete the payment.',
+      title: 'Simple, Secure Payments',
+      description:
+        'Pay directly through the app using your preferred method—whether credit card, debit, or digital wallet—making the process smooth and convenient.',
       icon: <IconCurrencyPeso className="h-6 w-6" />,
     },
     {
-      title: 'Park and Enjoy',
+      title: 'Enjoy Hassle-Free Parking',
       description:
-        'Drive to the parking spot and enjoy your time without worrying about parking.',
+        'Arrive, park, and relax! With your spot reserved and payment settled, enjoy a seamless parking experience without the stress.',
       icon: <IconParking className="h-6 w-6" />,
     },
   ];

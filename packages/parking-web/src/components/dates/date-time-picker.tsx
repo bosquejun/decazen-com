@@ -196,6 +196,7 @@ export default function DateTimePicker({
     >
       <PopoverTrigger>
         <Input
+          size="sm"
           isRequired
           isReadOnly
           label={label}

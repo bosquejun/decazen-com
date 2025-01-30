@@ -1,3 +1,4 @@
+import PasswordInput from '@/components/inputs/PasswordInput';
 import TextInput from '@/components/inputs/TextInput';
 import { Button } from '@heroui/react';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -63,6 +64,20 @@ export default function RentoutSpaceForm({
         fullWidth
         isRequired
       />
+      <PasswordInput
+        formProps={formProps}
+        name="password"
+        label="Password"
+        fullWidth
+        isRequired
+      />
+      <PasswordInput
+        formProps={formProps}
+        name="confirm_password"
+        label="Confirm password"
+        fullWidth
+        isRequired
+      />
       {/* <TextInput
         formProps={formProps}
         name="mobile_number"
@@ -70,13 +85,13 @@ export default function RentoutSpaceForm({
         label="Mobile number"
         fullWidth
       /> */}
-      <TextInput
+      {/* <TextInput
         formProps={formProps}
-        name="building_name"
+        name=""
         label="Building name"
         fullWidth
         isRequired
-      />
+      /> */}
 
       <Button
         fullWidth

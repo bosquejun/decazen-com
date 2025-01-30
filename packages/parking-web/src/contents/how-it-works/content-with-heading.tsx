@@ -6,7 +6,7 @@ import React from 'react';
 import Balancer from 'react-wrap-balancer';
 import { FeaturesSectionDemo } from './list-how-it-works';
 
-export const HowItWorksContentWithHeading: React.FC = () => {
+const HowItWorksContentWithHeading: React.FC = () => {
   return (
     <ContentLayout
       id="features"
@@ -49,3 +49,5 @@ export const HowItWorksContentWithHeading: React.FC = () => {
     </ContentLayout>
   );
 };
+
+export default HowItWorksContentWithHeading;

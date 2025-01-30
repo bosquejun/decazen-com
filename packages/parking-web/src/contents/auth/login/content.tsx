@@ -56,10 +56,10 @@ export default function AuthLoginContent() {
           <p className="text-sm text-neutral-500 dark:text-neutral-400">
             Don't have an account?{' '}
             <Link
-              href="/rent-out-space#get-started"
+              href="/rent-out-space"
               className="text-primary-500 font-medium dark:text-primary"
             >
-              Register
+              Get started
             </Link>
           </p>
         </div>

@@ -1,4 +1,3 @@
-import { buildingNameSchema } from '@/forms/common.schema';
 import * as yup from 'yup';
 import YupPassword from 'yup-password';
 import { parkingLotSchema, parkingSettingsSchema } from './parking.schema';
@@ -30,23 +29,16 @@ export const loginUserSchema = createUserSchema.pick(['email', 'password']);
 
 export type LoginUserSchemaType = yup.InferType<typeof loginUserSchema>;
 
-export const rentOutSpaceSchema = yup.object().shape({
+export const rentOutSpaceSchema = createUserSchema.shape({
   first_name: yup.string().required('First name is required'),
   last_name: yup.string().required('Last name is required'),
-  email: yup
-    .string()
-    .email('Value must be a valid email address')
-    .required('Email address is required'),
-  mobile_number: yup.string().optional(),
-  building_name: buildingNameSchema.required('Building name is required'),
+  // building_name: buildingNameSchema.required('Building name is required'),
 });
 
 export type RentOutSpaceSchemaType = yup.InferType<typeof rentOutSpaceSchema>;
 
 export const initialOnboardSchema = yup.object().shape({
-  user: rentOutSpaceSchema
-    .pick(['first_name', 'last_name', 'email', 'mobile_number'])
-    .partial(),
+  user: rentOutSpaceSchema.pick(['first_name', 'last_name']),
   parking_lot: parkingLotSchema.optional(),
   parking_settings: parkingSettingsSchema.optional(),
 });
@@ -54,3 +46,7 @@ export const initialOnboardSchema = yup.object().shape({
 export type InitialOnboardSchemaType = yup.InferType<
   typeof initialOnboardSchema
 >;
+
+export const userProfileSchema = initialOnboardSchema.pick(['user']);
+
+export type UserProfileSchemaType = yup.InferType<typeof userProfileSchema>;

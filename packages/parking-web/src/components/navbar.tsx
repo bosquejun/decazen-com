@@ -21,7 +21,7 @@ const LoginButton = () => (
     variant="shadow"
     className="font-semibold"
   >
-    Login Business Profile
+    Login
   </Button>
 );
 
@@ -36,16 +36,20 @@ interface NavbarProps {
 export const Navbar = () => {
   const navItems = [
     {
-      name: 'Features',
-      link: '/#features',
+      name: 'Find Space',
+      link: '/find-space',
     },
     {
-      name: 'Pricing',
-      link: '/#pricing',
+      name: 'How it works',
+      link: '/how-it-works',
+    },
+    {
+      name: 'About Us',
+      link: '/about-us',
     },
     {
       name: 'Contact',
-      link: '/#contact',
+      link: '/contact',
     },
   ];
 

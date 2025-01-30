@@ -1,12 +1,14 @@
 'use client';
 
 import { GridBlockBackground } from '@/components/backgrounds/grid-block.backgrounds';
-import GetStartedSection from '@/contents/rent-out-space/get-started';
 import { lazy, Suspense, useEffect } from 'react';
 import { Hero } from './hero';
 import WhyPartnerSection from './why-partner';
 
 const FAQ = lazy(async () => import('@/contents/rent-out-space/faq'));
+const GetStarted = lazy(
+  async () => import('@/contents/rent-out-space/get-started')
+);
 
 export default function Content() {
   // get hash from url
@@ -34,7 +36,12 @@ export default function Content() {
       </div>
       <Hero />
       <WhyPartnerSection />
-      <GetStartedSection />
+
+      <section id="get-started">
+        <Suspense fallback={<div>loading</div>}>
+          <GetStarted />
+        </Suspense>
+      </section>
       <Suspense fallback={<div>loading</div>}>
         <FAQ />
       </Suspense>

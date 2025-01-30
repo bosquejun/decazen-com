@@ -83,12 +83,13 @@ export default function TextInput<
 
   return (
     <Input
+      size="sm"
       {...registeredField}
       {...props}
       value={value || ''}
       isInvalid={errorMessage ? true : props?.isInvalid}
       errorMessage={errorMessage || props?.errorMessage}
-      variant="bordered"
+      variant="faded"
       isRequired={props.isRequired || required}
       isDisabled={isSubmitting || props.isDisabled || registeredField.disabled}
       defaultValue={defaultValues?.[inputName]}

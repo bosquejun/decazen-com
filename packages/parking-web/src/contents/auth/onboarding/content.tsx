@@ -1,37 +1,45 @@
 'use client';
 
-import TextInput from '@/components/inputs/TextInput';
-import { CardDashedGridLines } from '@/components/ui/card-dashed-grid-lines';
-import { motion } from 'framer-motion';
+import { CircularProgress } from '@heroui/react';
+import { useRouter } from 'next/navigation';
+import { lazy, Suspense, useState } from 'react';
 
 export default function Content() {
+  const router = useRouter();
+  const [currentStep, setCurrentStep] = useState(0);
+  const [steps, setSteps] = useState([
+    {
+      title: 'user-profile',
+      component: lazy(() => import('./user-profile.section')),
+    },
+    {
+      title: 'parking-lot',
+      component: lazy(() => import('./parking-lot.section')),
+    },
+  ]);
+
+  const handleOnSubmit = async (stepIndex: number, data: any) => {
+    if (stepIndex + 1 >= steps.length) {
+      router.replace('/dashboard');
+      return;
+    }
+    // do something with data
+    setCurrentStep(stepIndex + 1);
+  };
+
   return (
     <section className="mx-auto flex h-screen max-w-lg flex-col items-center justify-center">
-      <motion.div
-        initial={{
-          y: 40,
-          opacity: 0,
-        }}
-        animate={{
-          y: 0,
-          opacity: 1,
-        }}
-        transition={{
-          ease: 'linear',
-          duration: 0.5,
-        }}
-      >
-        <CardDashedGridLines className="p-8 flex flex-col items-center min-w-64 space-y-8">
-          <h2 className="text-2xl font-semibold">Setup your account</h2>
-          <div className="flex flex-col gap-y-4 mt-6">
-            <TextInput
-              name="email"
-              label="Email address"
-              placeholder="Enter your email address"
+      <Suspense fallback={<CircularProgress color="primary" />}>
+        {steps.map((step, idx) => {
+          const Component = step.component;
+          return currentStep === idx ? (
+            <Component
+              key={idx}
+              onSubmit={(data) => handleOnSubmit(idx, data)}
             />
-          </div>
-        </CardDashedGridLines>
-      </motion.div>
+          ) : null;
+        })}
+      </Suspense>
     </section>
   );
 }
