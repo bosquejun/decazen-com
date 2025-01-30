@@ -20,7 +20,7 @@ export function GridPatternFeatures({
     <div className={cn(classNames?.base)}>
       <div
         className={cn(
-          'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 md:gap-2',
+          'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-4',
           classNames?.wrapper
         )}
       >

@@ -5,9 +5,20 @@ import React, { PropsWithChildren } from 'react';
 export function CardDashedGridLines({
   children,
   className,
-}: PropsWithChildren<{ className?: string }>) {
+  classNames,
+}: PropsWithChildren<{
+  className?: string;
+  classNames?: {
+    base?: string;
+  };
+}>) {
   return (
-    <section className="w-full my-10 md:my-20 justify-start relative z-20 bg-gradient-to-br from-gray-100 to-white dark:from-neutral-900 dark:to-neutral-950">
+    <section
+      className={cn(
+        'w-full my-10 md:my-20 justify-start relative z-20 bg-gradient-to-br dark:from-content1 from-content2 to-background',
+        classNames?.base
+      )}
+    >
       <div className={cn('p-6', className)}>{children}</div>
       <GridLineHorizontal className="top-0" offset="200px" />
       <GridLineHorizontal className="bottom-0 top-auto" offset="200px" />
@@ -29,7 +40,7 @@ export const GridLineHorizontal = ({
       style={
         {
           '--background': '#ffffff',
-          '--color': 'rgba(0, 0, 0, 0.3)',
+          '--color': 'rgba(0, 0, 0, 0.5)',
           '--height': '1px',
           '--width': '5px',
           '--fade-stop': '90%',
@@ -64,7 +75,7 @@ const GridLineVertical = ({
       style={
         {
           '--background': '#ffffff',
-          '--color': 'rgba(0, 0, 0, 0.3)',
+          '--color': 'rgba(0, 0, 0, 0.5)',
           '--height': '5px',
           '--width': '1px',
           '--fade-stop': '90%',

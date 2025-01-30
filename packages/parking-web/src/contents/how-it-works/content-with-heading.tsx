@@ -1,9 +1,9 @@
 'use client';
-
 import { ContentLayout } from '@/components/ContentLayout';
 import SelectHeader from '@/components/headers/select-header';
-import { CardDashedGridLines } from '@/components/ui/card-dashed-grid-lines';
+import { motion } from 'framer-motion';
 import React from 'react';
+import Balancer from 'react-wrap-balancer';
 import { FeaturesSectionDemo } from './list-how-it-works';
 
 export const HowItWorksContentWithHeading: React.FC = () => {
@@ -14,7 +14,7 @@ export const HowItWorksContentWithHeading: React.FC = () => {
     >
       <div>
         <SelectHeader>
-          <h2 className="font-sans text-bold text-xl text-center md:text-4xl w-fit mx-auto font-bold tracking-tight text-neutral-8000 dark:text-neutral-100 text-neutral-800">
+          <h2 className="text-bold text-2xl md:text-4xl lg:text-5xl font-bold tracking-tight text-center w-fit mx-auto text-neutral-8000 dark:text-neutral-100 text-neutral-800">
             How{' '}
             <span className="text-primary-500 dark:text-primary">
               Decazen Parking
@@ -22,15 +22,30 @@ export const HowItWorksContentWithHeading: React.FC = () => {
             Works
           </h2>
         </SelectHeader>
-        <p className="max-w-lg text-sm text-neutral-600 text-center mx-auto mt-4 dark:text-neutral-400">
-          Decazen Parking is a platform that connects drivers with parking
-          spots. It allows drivers to reserve a parking spot and complete the
-          payment before arriving at the destination.
-        </p>
+        <motion.p
+          initial={{
+            y: 40,
+            opacity: 0,
+          }}
+          animate={{
+            y: 0,
+            opacity: 1,
+          }}
+          transition={{
+            ease: 'easeOut',
+            duration: 0.5,
+            delay: 0.2,
+          }}
+          className="text-center mt-6 text-base md:text-lg text-neutral-500 dark:text-neutral-400  max-w-3xl mx-auto relative z-10"
+        >
+          <Balancer>
+            Decazen Parking is a platform that connects drivers with parking
+            spots. It allows drivers to reserve a parking spot and complete the
+            payment before arriving at the destination.
+          </Balancer>
+        </motion.p>
       </div>
-      <CardDashedGridLines className="p-6">
-        <FeaturesSectionDemo />
-      </CardDashedGridLines>
+      <FeaturesSectionDemo />
     </ContentLayout>
   );
 };

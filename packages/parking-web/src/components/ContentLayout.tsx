@@ -9,7 +9,7 @@ export const ContentLayout = forwardRef<
     <div
       ref={ref}
       className={cn(
-        'relative z-10 max-w-7xl mx-auto pt-12 md:pt-24',
+        'relative z-10 max-w-7xl mx-auto pt-12 md:py-20',
         className
       )}
       {...props}

@@ -11,8 +11,8 @@ import { RoughNotation, RoughNotationGroup } from 'react-rough-notation';
 
 export const Hero = () => {
   return (
-    <ContentLayout className="min-h-screen flex flex-col justify-center">
-      <div className="flex flex-col ite justify-center relative h-full grow-[0.5]">
+    <ContentLayout className="flex flex-col justify-center md:min-h-screen">
+      <div className="flex flex-col relative grow-[0.5] py-20">
         <motion.h1
           initial={{
             y: 40,
@@ -80,9 +80,11 @@ export const Hero = () => {
           className="flex items-center gap-4 justify-center mt-6 relative z-10"
         >
           <div className="flex gap-6 md:gap-8 items-center mt-10 [perspective:800px] my-10">
-            <Button variant="solid" color="primary" className="sm:w-52">
-              Get Started
-            </Button>
+            <Link href="#get-started">
+              <Button variant="solid" color="primary" className="sm:w-52">
+                Get Started Today
+              </Button>
+            </Link>
             <RoughNotationGroup show>
               <RoughNotation
                 type="underline"

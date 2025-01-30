@@ -27,7 +27,7 @@ export default function WhyPartnerSection() {
       >
         <SelectHeader>
           <RoughNotationGroup show={isInView}>
-            <h2 className="font-sans text-bold text-center text-2xl md:text-4xl lg:text-5xl w-fit mx-auto font-bold tracking-tight text-neutral-8000 dark:text-neutral-100 text-neutral-800">
+            <h2 className="text-bold text-2xl md:text-4xl lg:text-5xl font-bold tracking-tight  text-center w-fit mx-auto text-neutral-8000 dark:text-neutral-100 text-neutral-800">
               Why{' '}
               <RoughNotation
                 type="underline"

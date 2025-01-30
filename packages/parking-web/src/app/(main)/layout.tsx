@@ -12,7 +12,7 @@ export default function RootLayout({
         <Navbar />
       </nav>
       <main className="z-0">{children}</main>
-      <footer>
+      <footer id="footer">
         <CenteredWithLogo />
       </footer>
     </div>

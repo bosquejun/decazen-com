@@ -52,7 +52,7 @@ const SVGVertical = ({ className }: { className?: string }) => {
       viewBox={`0 0 ${width} ${height}`}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={cn('text-neutral-400 dark:text-neutral-800', className)}
+      className={cn('text-neutral-300 dark:text-neutral-700', className)}
     >
       <path d="M0.5 0.5V479" stroke="currentColor" strokeWidth={2} />
       <motion.path
@@ -74,7 +74,7 @@ const SVGVertical = ({ className }: { className?: string }) => {
           gradientUnits="userSpaceOnUse"
         >
           <motion.stop offset="0%" stopColor="transparent" />
-          <motion.stop offset="50%" stopColor="var(--neutral-200)" />
+          <motion.stop offset="50%" stopColor="var(--text-foreground)" />
           <motion.stop offset="100%" stopColor="transparent" />
         </motion.linearGradient>
       </defs>
@@ -94,7 +94,7 @@ const SVG = ({ className }: { className?: string }) => {
       viewBox={`0 0 ${width} ${height}`}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={cn('text-neutral-400 dark:text-neutral-800', className)}
+      className={cn('text-neutral-400 dark:text-neutral-700', className)}
     >
       <path d="M0.5 0.5H479" stroke="currentColor" />
       <motion.path
@@ -116,7 +116,7 @@ const SVG = ({ className }: { className?: string }) => {
           gradientUnits="userSpaceOnUse"
         >
           <motion.stop offset="0%" stopColor="transparent" />
-          <motion.stop offset="50%" stopColor="var(--neutral-200)" />
+          <motion.stop offset="50%" stopColor="var(--text-foreground)" />
           <motion.stop offset="100%" stopColor="transparent" />
         </motion.linearGradient>
       </defs>

@@ -41,3 +41,20 @@ div[data-slot='base']:not([data-required])
   --tw-content: ' (Optional)' !important;
   content: var(--tw-content) !important;
 }
+
+:root {
+  --grid-line-stop-color-light: black;
+  --grid-line-stop-color-dark: var(--neutral-100);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --grid-line-stop-color: var(--grid-line-stop-color-dark);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --grid-line-stop-color: var(--grid-line-stop-color-light);
+  }
+}

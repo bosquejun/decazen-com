@@ -27,3 +27,16 @@ export type CreateUserSchemaType = yup.InferType<typeof createUserSchema>;
 export const loginUserSchema = createUserSchema.pick(['email', 'password']);
 
 export type LoginUserSchemaType = yup.InferType<typeof loginUserSchema>;
+
+export const rentOutSpaceSchema = yup.object().shape({
+  first_name: yup.string().required('First name is required'),
+  last_name: yup.string().required('Last name is required'),
+  email: yup
+    .string()
+    .email('Value must be a valid email address')
+    .required('Email address is required'),
+  mobile_number: yup.string().optional(),
+  building_name: yup.string().required('Building name is required'),
+});
+
+export type RentOutSpaceSchemaType = yup.InferType<typeof rentOutSpaceSchema>;

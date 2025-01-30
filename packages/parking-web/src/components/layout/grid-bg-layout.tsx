@@ -15,10 +15,10 @@ export const GridBgLayout = ({
   return (
     <div
       className={cn('w-screen h-screen', className, {
-        [`dark:bg-grid-white/[0.05] bg-grid-black/[0.1]`]: type === 'grid',
+        [`dark:bg-grid-white/[0.15] bg-grid-black/[0.1]`]: type === 'grid',
         [`dark:bg-grid-small-white/[0.2] bg-grid-small-black/[0.3]`]:
           type === 'grid-small',
-        [`dark:bg-dot-white/[0.1] bg-dot-black/[0.3]`]: type === 'dot',
+        [`dark:bg-dot-white/[0.15] bg-dot-black/[0.3]`]: type === 'dot',
       })}
     >
       {inverted ? (
