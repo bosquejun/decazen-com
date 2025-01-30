@@ -7,7 +7,7 @@ import { lazy, Suspense, useState } from 'react';
 export default function Content() {
   const router = useRouter();
   const [currentStep, setCurrentStep] = useState(0);
-  const [steps, setSteps] = useState([
+  const [steps] = useState([
     {
       title: 'user-profile',
       component: lazy(() => import('./user-profile.section')),
