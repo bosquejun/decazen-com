@@ -1,5 +1,4 @@
 'use client';
-import { CONSTANTS } from '@/constants/links';
 import { useCalEmbed } from '@/hooks/useCalEmbed';
 import { cn } from '@/lib/utils';
 import { Button } from '@heroui/react';
@@ -77,17 +76,6 @@ export const Navbar = () => {
 
 const DesktopNav = ({ navItems, visible }: NavbarProps) => {
   const [hovered, setHovered] = useState<number | null>(null);
-
-  const calOptions = useCalEmbed({
-    namespace: CONSTANTS.CALCOM_NAMESPACE,
-    styles: {
-      branding: {
-        brandColor: CONSTANTS.CALCOM_BRAND_COLOR,
-      },
-    },
-    hideEventTypeDetails: CONSTANTS.CALCOM_HIDE_EVENT_TYPE_DETAILS,
-    layout: CONSTANTS.CALCOM_LAYOUT,
-  });
 
   return (
     <motion.div
