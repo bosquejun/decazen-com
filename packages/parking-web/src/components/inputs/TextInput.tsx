@@ -85,7 +85,7 @@ export default function TextInput<
     <Input
       {...registeredField}
       {...props}
-      value={value}
+      value={value || ''}
       isInvalid={errorMessage ? true : props?.isInvalid}
       errorMessage={errorMessage || props?.errorMessage}
       variant="bordered"

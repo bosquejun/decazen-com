@@ -4,16 +4,18 @@ import { ContentLayout } from '@/components/ContentLayout';
 import { CardDashedGridLines } from '@/components/ui/card-dashed-grid-lines';
 import RentoutSpaceForm from '@/forms/auth/rent-out-space.form';
 import { motion } from 'framer-motion';
+import { useRouter } from 'next/navigation';
 import Balancer from 'react-wrap-balancer';
 
 export default function GetStartedSection() {
+  const router = useRouter();
   return (
     <div
       className="bg-content2 dark:bg-content1 w-full h-auto relative"
       id="get-started"
     >
       <ContentLayout className="flex flex-col py-20">
-        <div className="grid grid-cols-3 items-center justify-center space-y-6 md:space-y-8">
+        <div className="grid md:grid-cols-3 items-center justify-center space-y-6 md:space-y-8">
           <div className="col-span-1 md:col-span-2">
             <motion.h1
               initial={{
@@ -28,7 +30,7 @@ export default function GetStartedSection() {
                 ease: 'easeOut',
                 duration: 0.5,
               }}
-              className="text-2xl md:text-4xl lg:text-5xl font-bold tracking-tight  max-w-6xl mx-auto mt-6 relative z-10 w-full"
+              className="text-center md:text-start text-2xl md:text-4xl lg:text-5xl font-bold tracking-tight  w-full md:max-w-6xl mx-auto mt-6 relative z-10 w-full"
             >
               <Balancer>Ready to get started?</Balancer>
             </motion.h1>
@@ -46,7 +48,7 @@ export default function GetStartedSection() {
                 duration: 0.5,
                 delay: 0.2,
               }}
-              className="mt-6 text-base md:text-lg text-neutral-500 dark:text-neutral-400  relative z-10"
+              className="text-center md:text-start mt-6 text-base md:text-lg text-neutral-500 dark:text-neutral-400  relative z-10"
             >
               <Balancer>
                 Fill out the form below to get started. Our team will reach out
@@ -71,12 +73,13 @@ export default function GetStartedSection() {
           >
             <CardDashedGridLines
               classNames={{
-                base: 'dark!from-content2 from-content1 !to-content2',
+                base: 'dark!from-content2 from-content1 !to-content2 w-full !min-w-[310px]',
               }}
             >
               <RentoutSpaceForm
                 onSubmit={async (data) => {
                   console.log(data);
+                  router.push('/onboarding');
                 }}
               />
             </CardDashedGridLines>

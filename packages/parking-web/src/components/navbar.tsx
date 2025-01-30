@@ -1,5 +1,4 @@
 'use client';
-import { useCalEmbed } from '@/hooks/useCalEmbed';
 import { cn } from '@/lib/utils';
 import { Button } from '@heroui/react';
 import { IconMenu2, IconX } from '@tabler/icons-react';
@@ -13,6 +12,18 @@ import Link from 'next/link';
 import { useRef, useState } from 'react';
 import { Logo } from './logo';
 import { ModeToggle } from './mode-toggle';
+
+const LoginButton = () => (
+  <Button
+    color="primary"
+    as="a"
+    href="/login"
+    variant="shadow"
+    className="font-semibold"
+  >
+    Login Business Profile
+  </Button>
+);
 
 interface NavbarProps {
   navItems: {
@@ -156,16 +167,7 @@ const DesktopNav = ({ navItems, visible }: NavbarProps) => {
             </motion.div>
           )}
         </AnimatePresence> */}
-        <Link href="/login">
-          <Button
-            as="button"
-            variant="shadow"
-            color="primary"
-            className="hidden md:block "
-          >
-            Login Business Profile
-          </Button>
-        </Link>
+        <LoginButton />
       </div>
     </motion.div>
   );
@@ -173,18 +175,6 @@ const DesktopNav = ({ navItems, visible }: NavbarProps) => {
 
 const MobileNav = ({ navItems, visible }: NavbarProps) => {
   const [open, setOpen] = useState(false);
-
-  const calOptions = useCalEmbed({
-    namespace: 'chat-with-manu-demo',
-    styles: {
-      branding: {
-        brandColor: '#000000',
-      },
-    },
-    hideEventTypeDetails: false,
-    layout: 'month_view',
-  });
-
   return (
     <>
       <motion.div
@@ -253,17 +243,7 @@ const MobileNav = ({ navItems, visible }: NavbarProps) => {
               >
                 Login
               </Button> */}
-              <Button
-                data-cal-namespace={calOptions.namespace}
-                data-cal-link={`manu-arora-vesr9s/chat-with-manu-demo`}
-                data-cal-config={`{"layout":"${calOptions.layout}"}`}
-                as="button"
-                onPress={() => setOpen(false)}
-                variant="shadow"
-                color="primary"
-              >
-                Login Business Profile
-              </Button>
+              <LoginButton />
             </motion.div>
           )}
         </AnimatePresence>

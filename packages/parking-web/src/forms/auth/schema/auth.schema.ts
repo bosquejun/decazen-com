@@ -1,5 +1,7 @@
+import { buildingNameSchema } from '@/forms/common.schema';
 import * as yup from 'yup';
 import YupPassword from 'yup-password';
+import { parkingLotSchema, parkingSettingsSchema } from './parking.schema';
 
 YupPassword(yup); // extend yup with password validation
 
@@ -36,7 +38,19 @@ export const rentOutSpaceSchema = yup.object().shape({
     .email('Value must be a valid email address')
     .required('Email address is required'),
   mobile_number: yup.string().optional(),
-  building_name: yup.string().required('Building name is required'),
+  building_name: buildingNameSchema.required('Building name is required'),
 });
 
 export type RentOutSpaceSchemaType = yup.InferType<typeof rentOutSpaceSchema>;
+
+export const initialOnboardSchema = yup.object().shape({
+  user: rentOutSpaceSchema
+    .pick(['first_name', 'last_name', 'email', 'mobile_number'])
+    .partial(),
+  parking_lot: parkingLotSchema.optional(),
+  parking_settings: parkingSettingsSchema.optional(),
+});
+
+export type InitialOnboardSchemaType = yup.InferType<
+  typeof initialOnboardSchema
+>;

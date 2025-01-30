@@ -21,8 +21,8 @@ export const Hero = ({ isInView }: { isInView?: boolean }) => {
         />
       </div>
       <ContentLayout className="min-h-screen">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 items-start md:px-8 px-2 ">
-          <div className="md:col-span-3 py-8 md:py-10 px-4 md:px-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 items-start ">
+          <div className="md:col-span-3 py-8 md:py-10 ">
             <Spacer y={24} className="hidden md:block" />
             <RoughNotationGroup show={isInView}>
               <motion.h2
@@ -117,7 +117,7 @@ export const Hero = ({ isInView }: { isInView?: boolean }) => {
                   <RoughNotation
                     type="underline"
                     animationDuration={1000}
-                    animationDelay={3000}
+                    animationDelay={500}
                     iterations={3}
                     color="#facc15"
                   >
@@ -148,7 +148,7 @@ export const Hero = ({ isInView }: { isInView?: boolean }) => {
             }}
             className="flex overflow-hidden h-full w-full relative flex-shrink-0 p-4 md:p-10 col-span-1 md:col-span-2"
           >
-            <CardDashedGridLines className="px-6 py-10">
+            <CardDashedGridLines className="px-6 py-10 min-w-72 md:min-w-96">
               <CardBooking />
             </CardDashedGridLines>
           </motion.div>

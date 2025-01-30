@@ -80,11 +80,15 @@ export const Hero = () => {
           className="flex items-center gap-4 justify-center mt-6 relative z-10"
         >
           <div className="flex gap-6 md:gap-8 items-center mt-10 [perspective:800px] my-10">
-            <Link href="#get-started">
-              <Button variant="solid" color="primary" className="sm:w-52">
-                Get Started Today
-              </Button>
-            </Link>
+            <Button
+              as="a"
+              href="#get-started"
+              variant="solid"
+              color="primary"
+              className="sm:w-52"
+            >
+              Get Started Today
+            </Button>
             <RoughNotationGroup show>
               <RoughNotation
                 type="underline"

@@ -3,6 +3,7 @@ import {
   IconBrandFacebookFilled,
   IconBrandGoogleFilled,
 } from '@tabler/icons-react';
+import { motion } from 'framer-motion';
 
 import { CardDashedGridLines } from '@/components/ui/card-dashed-grid-lines';
 import LoginUserForm from '@/forms/auth/login.form';
@@ -15,9 +16,23 @@ export default function AuthLoginContent() {
       <CardDashedGridLines className="p-8 flex flex-col items-center min-w-64 space-y-8">
         <Logo />
 
-        <div className="mt-4">
+        <motion.div
+          initial={{
+            y: 40,
+            opacity: 0,
+          }}
+          animate={{
+            y: 0,
+            opacity: 1,
+          }}
+          transition={{
+            ease: 'easeOut',
+            duration: 0.5,
+          }}
+          className="mt-4"
+        >
           <LoginUserForm defaultValues={{}} onSubmit={async () => {}} />
-        </div>
+        </motion.div>
 
         <div className="my-6 h-px w-full bg-neutral-300 dark:bg-neutral-800" />
 
@@ -41,7 +56,7 @@ export default function AuthLoginContent() {
           <p className="text-sm text-neutral-500 dark:text-neutral-400">
             Don't have an account?{' '}
             <Link
-              href="/rent-out-space"
+              href="/rent-out-space#get-started"
               className="text-primary-500 font-medium dark:text-primary"
             >
               Register
